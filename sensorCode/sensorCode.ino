@@ -16,7 +16,6 @@ void setup() {
   Serial.begin(115200);
 }
 
-
 void loop() {
   if (millis() >= targetTime) {
 
@@ -25,8 +24,7 @@ void loop() {
     buttonState = digitalRead(RESET);
 
     if (buttonState == HIGH) { //If button is pressed, reset
-      String reset = String("rst");
-      Serial.println(reset);
+      Serial.println(String("rst"));
       x = 0;
       y = 0;
     } else {
@@ -35,11 +33,10 @@ void loop() {
       if (tmpdata_X != x or tmpdata_Y != y) {
         x = tmpdata_X;
         y = tmpdata_Y;
+				String output = String(x) + String(",") + String(y);
+    		Serial.println(output);
       }
     }
-
-    String output = String(x) + String(",") + String(y);
-    Serial.println(output);
 
   }
 }
