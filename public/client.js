@@ -22,8 +22,13 @@ function map(num, inputMin, inputMax, outputMin, outputMax) {
 
 socket.on('new-pos', function (newPosition) { // handling new sensor values
   //Map values to height and width of screen
-  newPosition[0] = map(newPosition[0], 0, 1023, 0, ctx.width)
-  newPosition[1] = map(newPosition[1], 0, 1023, 0, ctx.height)
+  var start_x = ctx.width * 0.05
+    , end_x = ctx.width - start_x
+    , start_y = ctx.height * 0.05
+    , end_y = ctx.height - start_y;
+
+  newPosition[0] = map(newPosition[0], 0, 1023, start_x, end_x)
+  newPosition[1] = map(newPosition[1], 0, 1023, start_y, end_y)
   if (firstMessage) { // if its the first message store that value as previous
     firstMessage = false;
     previousPosition = newPosition;
