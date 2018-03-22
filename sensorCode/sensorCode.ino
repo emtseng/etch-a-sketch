@@ -23,7 +23,6 @@ void loop() {
     targetTime = millis() + interval;
 
     buttonState = digitalRead(RESET);
-    Serial.println(buttonState);
 
     if (buttonState == HIGH) { //If button is pressed, reset
       String reset = String("rst");
