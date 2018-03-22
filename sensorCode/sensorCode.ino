@@ -33,8 +33,8 @@ void loop() {
       if (tmpdata_X != x or tmpdata_Y != y) {
         x = tmpdata_X;
         y = tmpdata_Y;
-				String output = String(x) + String(",") + String(y);
-    		Serial.println(output);
+        String output = String(x) + String(",") + String(y);
+        Serial.println(output);
       }
     }
 
