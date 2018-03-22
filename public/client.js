@@ -16,13 +16,14 @@ socket.on('reset', function () { // on a 'reset' message clean and reste firstMe
   ctx.clear();
 });
 
+function map(num, inputMin, inputMax, outputMin, outputMax) {
+  return (num - inputMin) * (outputMax - outputMin) / (inputMax - inputMin) + outputMin;
+}
+
 socket.on('new-pos', function (newPosition) { // handling new sensor values
-  console.log('previous: ', previousPosition)
-  console.log('new: ', newPosition)
-
-  //TODO: Map the incoming 10-bit numbers to the height and width of the screen.
-  // See https://github.com/soulwire/sketch.js/wiki/API for sketch references
-
+  //Map values to height and width of screen
+  newPosition[0] = map(newPosition[0], 0, 1023, 0, ctx.width)
+  newPosition[1] = map(newPosition[1], 0, 1023, 0, ctx.height)
   if (firstMessage) { // if its the first message store that value as previous
     firstMessage = false;
     previousPosition = newPosition;
