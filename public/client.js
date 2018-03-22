@@ -30,7 +30,7 @@ socket.on('new-pos', function (newPosition) { // handling new sensor values
   newPosition[0] = map(newPosition[0], 0, 1023, start_x, end_x)
   newPosition[1] = map(newPosition[1], 0, 1023, start_y, end_y)
 
-  print("newPosition: ", newPosition)
+  console.log("newPosition: ", newPosition)
 
   if (firstMessage) { // if its the first message store that value as previous
     firstMessage = false;
