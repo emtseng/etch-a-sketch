@@ -17,7 +17,7 @@ socket.on('reset', function () { // on a 'reset' message clean and reste firstMe
 });
 
 socket.on('new-pos', function (newPosition) { // handling new sensor values
-
+  console.log(previousPosition)
   console.log(newPosition)
 
   //TODO: Map the incoming 10-bit numbers to the height and width of the screen.
