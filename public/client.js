@@ -21,7 +21,7 @@ function map(num, inputMin, inputMax, outputMin, outputMax) {
 }
 
 socket.on('new-pos', function (newPosition) { // handling new sensor values
-  print('before map: ', newPosition)
+  console.log('before map: ', newPosition)
   //Map values to height and width of screen
   var start_x = ctx.width * 0.05
     , end_x = ctx.width - start_x
