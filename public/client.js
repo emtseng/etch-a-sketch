@@ -17,8 +17,8 @@ socket.on('reset', function () { // on a 'reset' message clean and reste firstMe
 });
 
 socket.on('new-pos', function (newPosition) { // handling new sensor values
-  console.log(previousPosition)
-  console.log(newPosition)
+  console.log('previous: ', previousPosition)
+  console.log('new: ', newPosition)
 
   //TODO: Map the incoming 10-bit numbers to the height and width of the screen.
   // See https://github.com/soulwire/sketch.js/wiki/API for sketch references
