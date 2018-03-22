@@ -16,10 +16,6 @@ socket.on('reset', function () { // on a 'reset' message clean and reste firstMe
   ctx.clear();
 });
 
-function map(num, inputMin, inputMax, outputMin, outputMax) {
-  return (num - inputMin) * (outputMax - outputMin) / (inputMax - inputMin) + outputMin;
-}
-
 socket.on('new-pos', function (newPosition) { // handling new sensor values
   //Map values to height and width of screen, accounting for desired padding
   var padding = 0.1;
