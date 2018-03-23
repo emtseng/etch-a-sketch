@@ -3,6 +3,7 @@
 <head>
     <script src="/socket.io/socket.io.js"></script>
     <script src="sketch.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <title>sketch.js &raquo; Basic Example</title>
@@ -25,7 +26,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
         }
         h1 {
             margin: 0;
@@ -39,7 +40,6 @@
         button {
             padding: 5px;
             color: white;
-            background-color: #A19191;
             border-radius: 20px;
             font-size: 1.5em;
             padding: 20px;
@@ -51,9 +51,10 @@
 <body>
     <div id="header">
         <h1>etch-a-sketch</h1>
-        <button>
-            email to myself
-        </button>
+        <button id="red">red</button>
+        <button id="green">green</button>
+        <button id="blue">blue</button>
+        <button id="black">black</button>
     </div>
     <div id="container"></div>
 
