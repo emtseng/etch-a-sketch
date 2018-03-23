@@ -19,9 +19,9 @@ socket.on('reset', function () { // on a 'reset' message clean and reset firstMe
 socket.on('new-pos', function (newPosition) { // handling new sensor values
   //Map values to height and width of screen, accounting for desired padding
   var padding = 0.1;
-  var start_x = ctx.width * padding
+  var start_x = 0
     , end_x = ctx.width - start_x
-    , start_y = ctx.height * padding
+    , start_y = 0
     , end_y = ctx.height - start_y;
 
   newPosition[0] = map(newPosition[0], 0, 1023, start_x, end_x)
