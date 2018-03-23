@@ -20,9 +20,9 @@ socket.on('new-pos', function (newPosition) { // handling new sensor values
   //Map values to height and width of screen, accounting for desired padding
   var padding = 0.1;
   var start_x = 0
-    , end_x = ctx.width - start_x
+    , end_x = ctx.width * (1 - padding)
     , start_y = 0
-    , end_y = ctx.height - start_y;
+    , end_y = ctx.height * (1 - padding);
 
   newPosition[0] = map(newPosition[0], 0, 1023, start_x, end_x)
   newPosition[1] = map(newPosition[1], 0, 1023, start_y, end_y)
