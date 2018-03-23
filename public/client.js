@@ -1,4 +1,3 @@
-var COLOUR = '#505050';  // This is the drawing color
 var radius = 3;           // Constant radio for the line
 var socket = io();        // websocket to the server
 var previousPosition = [0, 0]; // previous position to draw a line from
@@ -15,6 +14,16 @@ socket.on('reset', function () { // on a 'reset' message clean and reset firstMe
   firstMessage = true;
   ctx.clear();
 });
+
+var COLOUR = '#505050';  // This is the drawing color
+
+var colors = {
+  'red': '#fc0d1c',
+  'green': '#0e7e12',
+  'blue': '#0b24fb',
+  'black': '#505050'
+}
+
 
 socket.on('new-pos', function (newPosition) { // handling new sensor values
   //Map values to height and width of screen, accounting for desired padding
@@ -41,3 +50,14 @@ socket.on('new-pos', function (newPosition) { // handling new sensor values
     previousPosition = newPosition; // update to the new position.
   }
 });
+
+$('button').hover(function() {
+  $(this).addClass('zoom')
+}, function() {
+  $(this).removeClass('zoom')
+})
+
+$('button').click(function() {
+  $(this).addClass('selected')
+  COLOUR = $(this).attr('id')
+})
