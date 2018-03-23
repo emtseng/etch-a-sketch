@@ -11,7 +11,7 @@ ctx.retina = 'auto';
 ctx.setup = function () { console.log('setup'); } // Setup all variables
 ctx.keydown = function () { if (ctx.keys.C) ctx.clear(); } // handeling keydowns
 
-socket.on('reset', function () { // on a 'reset' message clean and reste firstMessage
+socket.on('reset', function () { // on a 'reset' message clean and reset firstMessage
   firstMessage = true;
   ctx.clear();
 });
@@ -35,7 +35,7 @@ socket.on('new-pos', function (newPosition) { // handling new sensor values
     ctx.lineJoin = 'round';
     ctx.fillStyle = ctx.strokeStyle = COLOUR;
     ctx.lineWidth = radius;
-    ctx.beginPath();  //begin a adrawing
+    ctx.beginPath();  //begin a drawing
     ctx.moveTo(previousPosition[0], previousPosition[1]); // from
     ctx.lineTo(newPosition[0], newPosition[1]); // to
     ctx.stroke(); // and only draw a stroke
