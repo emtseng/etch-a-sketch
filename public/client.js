@@ -58,6 +58,7 @@ $('button').hover(function() {
 })
 
 $('button').click(function() {
+  $('button.selected').removeClass('selected')
   $(this).addClass('selected')
   COLOUR = $(this).attr('id')
 })
